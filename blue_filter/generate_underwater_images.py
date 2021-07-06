@@ -23,22 +23,25 @@ def generate_video_underwater(image_names, images_path, depth_path, output_path)
     image_names = open(image_names, 'r')
     names = image_names.readlines()
 
-    for filename in names:
-        im = to_tensor(Image.open(os.path.join(images_path, f'{filename}.bmp')))
-        depth = to_tensor(ImageOps.grayscale(Image.open(os.path.join(depth_path, f'{filename}_depth.bmp')))).squeeze()
-        width, height = depth.size()
-        # todo should resize?
+    number = 5  # any numbers as you want(a kind of augmentation
+    for data in Type:
+        deep = 5 - 2 * torch.rand(number, 1)
+        horization = 15 - 14.5 * torch.rand(number, 1)
+        type = data.value
+        for filename in names:
+            filename = filename.split('\n')[0]
+            im = to_tensor(Image.open(os.path.join(images_path, f'{filename}.png')))
+            depth = to_tensor(ImageOps.grayscale(Image.open(os.path.join(depth_path, f'{filename}.png')))).squeeze()
+            width, height = depth.size()
+            # todo should resize?
 
-        number = 5  # any numbers as you want(a kind of augmentation
-
-        for data in Type:
-            deep = 5 - 2 * torch.rand(number, 1)
-            horization = 15 - 14.5 * torch.rand(number, 1)
-
-            type = data.value
             A = torch.zeros(3, 1)
             t = torch.zeros(3, width, height)
             for j in range(number):
+                vid_path = os.path.join(output_path, f'{data.name}_{deep[j]}_{horization[j]}')
+                if not os.path.exists(vid_path):
+                    os.makedirs(vid_path)
+
                 A[0, :] = 1.5 * type[0]**deep[j]
                 A[1, :] = 1.5 * type[1]**deep[j]
                 A[2, :] = 1.5 * type[2]**deep[j]
@@ -51,5 +54,16 @@ def generate_video_underwater(image_names, images_path, depth_path, output_path)
                 output[1, :, :] = A[1] * im[1, :, :] * t[1, :, :] + (1 - t[1, :, :]) * A[1]
                 output[2, :, :] = A[2] * im[2, :, :] * t[2, :, :] + (1 - t[2, :, :]) * A[2]
 
-                under_water_im_path = os.path.join(output_path, f'{filename}_under_water_{data.name}_{deep[j]}_{horization[j]}.jpeg')
+                under_water_im_path = os.path.join(vid_path, f'{filename}_under_water.jpg')
                 save_image(output, under_water_im_path)
+
+
+
+image_names='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/images.txt'
+images_path='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/color_down_png'
+output_path='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/output'
+depth_path='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/depth'
+
+generate_video_underwater(image_names, images_path, depth_path, output_path)
+
+
