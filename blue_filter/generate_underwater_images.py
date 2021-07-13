@@ -1,3 +1,5 @@
+# for more info see: https://li-chongyi.github.io/proj_underwater_image_synthesis.html
+
 from PIL import Image, ImageOps
 from torchvision import transforms
 from torchvision.utils import save_image
@@ -6,6 +8,7 @@ import torch
 from enum import Enum
 
 
+# different types of UW degragation
 class Type(Enum):
     type_I = [0.85, 0.961, 0.982]
     type_IA = [0.84, 0.955, 0.975]
@@ -14,19 +17,30 @@ class Type(Enum):
     type_III = [0.75, 0.885, 0.89]
     type_1 = [0.75, 0.885, 0.875]
     type_3 = [0.71, 0.82, 0.8]
-    type_5 = [0.67, 0.73, 0.67]
-    type_7 = [0.62, 0.61, 0.5]
-    type_9 = [0.55, 0.46, 0.29]
+    type_5 = [0.67, 0.73, 0.67]  # results are not very good..
+#     type_7 = [0.62, 0.61, 0.5]  # gives black-ish results
+#     type_9 = [0.55, 0.46, 0.29]  # gives black results
 
-def generate_video_underwater(image_names, images_path, depth_path, output_path):
+
+def generate_video_underwater(images_path, depth_path, output_path="output", randoms=3):
+    """ 
+    The function creates an underwater degradation for all the images (video frames) in images_path, using their depths 
+        from depth_path.
+    The names of the corresponding images should be identical.
+    For each water type there are randoms variations to be generated; total output is of size:
+        number_of_frames X randoms X number of types
+    
+    params:
+    - images_path - path to directory containing the frames
+    - depth_path - path to directory containing the depth of the frames, with names as in images_path.
+    - randoms - any numbers as you want(a kind of augmentation
+    """
     to_tensor = transforms.ToTensor()
-    image_names = open(image_names, 'r')
-    names = image_names.readlines()
+    names = [os.path.splitext(file)[0] for file in os.listdir(images_path)]
 
-    number = 5  # any numbers as you want(a kind of augmentation
     for data in Type:
-        deep = 5 - 2 * torch.rand(number, 1)
-        horization = 15 - 14.5 * torch.rand(number, 1)
+        deep = 5 - 2 * torch.rand(randoms, 1)
+        horization = 15 - 14.5 * torch.rand(randoms, 1)
         type = data.value
         for filename in names:
             filename = filename.split('\n')[0]
@@ -37,7 +51,7 @@ def generate_video_underwater(image_names, images_path, depth_path, output_path)
 
             A = torch.zeros(3, 1)
             t = torch.zeros(3, width, height)
-            for j in range(number):
+            for j in range(randoms):
                 vid_path = os.path.join(output_path, f'{data.name}_{deep[j]}_{horization[j]}')
                 if not os.path.exists(vid_path):
                     os.makedirs(vid_path)
@@ -54,16 +68,5 @@ def generate_video_underwater(image_names, images_path, depth_path, output_path)
                 output[1, :, :] = A[1] * im[1, :, :] * t[1, :, :] + (1 - t[1, :, :]) * A[1]
                 output[2, :, :] = A[2] * im[2, :, :] * t[2, :, :] + (1 - t[2, :, :]) * A[2]
 
-                under_water_im_path = os.path.join(vid_path, f'{filename}_under_water.jpg')
+                under_water_im_path = os.path.join(vid_path, f'{filename}.png')
                 save_image(output, under_water_im_path)
-
-
-
-image_names='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/images.txt'
-images_path='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/color_down_png'
-output_path='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/output'
-depth_path='/home/labs/waic/shirawe/color_underwater_videos/blue_filter/depth'
-
-generate_video_underwater(image_names, images_path, depth_path, output_path)
-
-
