@@ -1,5 +1,7 @@
 # DL4CV project: Underwater Color Restoration for Videos
 
+Our goal is to be able to take an underwater video and make it colorful in a temporal-consistent way, so there is no flickering between frames. 
+
 ## Networks in use
 - [blue_filter](https://li-chongyi.github.io/proj_underwater_image_synthesis.html) - a filter that simulates underwater degradation for images, using depth map.
 - [UWCNN](https://li-chongyi.github.io/proj_underwater_image_synthesis.html) - color restoration for UW images; from the same paper as above.
