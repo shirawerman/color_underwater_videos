@@ -9,3 +9,4 @@ Our goal is to be able to take an underwater video and make it colorful in a tem
 The depth maps for the blue_filter script were created using [Robust Consistent Video Depth Estimation](https://robust-cvd.github.io/), and the flow maps for the colorization_network were created using [FlowNet2](https://github.com/NVIDIA/flownet2-pytorch)
 
 
+## Usage
