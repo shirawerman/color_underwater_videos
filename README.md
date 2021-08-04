@@ -30,6 +30,8 @@ source activate ColorVid
 pip install -r requirements.txt
 ```
 
+Then, download the pretrained models from [this link](https://drive.google.com/drive/folders/1OxB0G1blnjIDcFQ2Cnt4RfJbP-Iw-QH-?usp=sharing)
+
 ## Data Preparation
 
 In order to colorize your own video, it requires to extract the video frames, and provide a reference image as an example.
