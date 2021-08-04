@@ -15,5 +15,5 @@ The depth maps for the blue_filter script were created using [Robust Consistent 
 
 ## Usage
 
-To run the network, follow the instructions [here]](https://github.com/zhangmozhe/Deep-Exemplar-based-Video-Colorization) with the exeption that
+To run the network, follow the instructions [here](https://github.com/zhangmozhe/Deep-Exemplar-based-Video-Colorization) with the exeption that
 you don't need to download the pretrained model.
