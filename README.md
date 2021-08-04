@@ -1,4 +1,9 @@
+
+
+
 # DL4CV project: Underwater Color Restoration for Videos
+
+https://user-images.githubusercontent.com/71815064/128169439-6d3da019-b3fe-46a7-bd57-ceb8a68694c7.mp4
 
 Our goal is to be able to take an underwater video and make it colorful in a temporal-consistent way, so there is no flickering between frames. 
 
