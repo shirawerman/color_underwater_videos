@@ -1,0 +1,38 @@
+train.py 2021-08-02 08:36:34
+------------ Options -------------
+batch_size: 16
+beta1: 0.5
+checkpoint_dir: checkpoints/weights_scratch_only_l1
+contextual_loss_direction: forward
+data_root: ../data_root/train_data
+data_root_imagenet: ../train_data/data_root/lioness/reference
+domain_invariant: False
+epoch: 1
+gpu_ids: 0,1,2,3
+ic: 9
+image_size: [192, 384]
+load_pretrained_model: False
+lr: 0.001
+lr_gamma: 0.9
+lr_step: 750
+luminance_noise: 2.0
+nonzero_placeholder_probability: 0.0
+permute_data: True
+print_step: 2
+real_reference_probability: 0.7
+resume: True
+resume_epoch: 1
+save_net_step: 40
+tb_log_step: 50
+weight_consistent: 0.002
+weight_contextual: 0.0
+weight_gan: 0.05
+weight_nonlocal_consistent: 0.0
+weight_nonlocal_smoothness: 0.0
+weight_perceptual: 0.0
+weight_smoothness: 3.0
+weigth_l1: 3.0
+with_bad: True
+with_mid: True
+workers: 8
+-------------- End ----------------

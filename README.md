@@ -15,5 +15,33 @@ The depth maps for the blue_filter script were created using [Robust Consistent 
 
 ## Usage
 
+## Prerequisites
+
+- Python 3.6+
+- Nvidia GPU + CUDA, CuDNN
+
+## Installation
+
+First use the following commands to prepare the environment:
+
+```bash
+conda create -n ColorVid python=3.6
+source activate ColorVid
+pip install -r requirements.txt
+```
+
+## Data Preparation
+
+In order to colorize your own video, it requires to extract the video frames, and provide a reference image as an example.
+To extract the frames, you can run
+```bash
+python vid_to_frames.py --path <vid_path> --output_path <out_path>
+```
+Note that the default for input and output path are: './input/your_video' and './input/your_frames' correspondingly.
+
+Next, place your reference images into another folder, _e.g._, './input/your_ref'
+
+
+
 To run the network, follow the instructions [here](https://github.com/zhangmozhe/Deep-Exemplar-based-Video-Colorization) with the exeption that
 you don't need to download the pretrained model.
