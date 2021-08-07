@@ -30,7 +30,8 @@ source activate ColorVid
 pip install -r requirements.txt
 ```
 
-Then, download the pretrained models from [this link](https://drive.google.com/drive/folders/1OxB0G1blnjIDcFQ2Cnt4RfJbP-Iw-QH-?usp=sharing)
+Then, download the pretrained models from [this link](https://drive.google.com/drive/folders/1OxB0G1blnjIDcFQ2Cnt4RfJbP-Iw-QH-?usp=sharing
+unzip the files and place the folders 'checkpoints' and 'data' in the 'modified_DEBVC' directory.
 
 ## Data Preparation
 
