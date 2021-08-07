@@ -30,7 +30,7 @@ source activate ColorVid
 pip install -r requirements.txt
 ```
 
-Then, download the pretrained models from [this link](https://drive.google.com/drive/folders/1OxB0G1blnjIDcFQ2Cnt4RfJbP-Iw-QH-?usp=sharing)
+Then, download the pretrained models from [this link](https://drive.google.com/drive/folders/1OxB0G1blnjIDcFQ2Cnt4RfJbP-Iw-QH-?usp=sharing),
 unzip the files and place the folders 'checkpoints' and 'data' in the 'modified_DEBVC' directory.
 
 ## Data Preparation
@@ -40,11 +40,13 @@ To extract the frames, you can run
 ```bash
 python vid_to_frames.py --path <vid_path> --output_path <out_path>
 ```
-Note that the default for input and output path are: './input/your_video' and './input/your_frames' correspondingly.
+Note that the default for input and output path are: './modified_UW_exampler/input/video' and './modified_UW_exampler/input/frames' correspondingly.
 
-Next, place your reference images into another folder, _e.g._, './input/your_ref'
+Next, place your reference images in a directory named 'ref', _e.g._, './modified_UW_exampler/input/ref'
+
+**Note that 'frames' and 'ref' must be in the same directory**
 
 
+##Comparison with commonly used commercial app
 
-To run the network, follow the instructions [here](https://github.com/zhangmozhe/Deep-Exemplar-based-Video-Colorization) with the exeption that
-you don't need to download the pretrained model.
+***video with dive+ ***
