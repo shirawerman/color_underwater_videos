@@ -46,6 +46,12 @@ Next, place your reference images in a directory named 'ref', _e.g._, './modifie
 
 **Note that 'frames' and 'ref' must be in the same directory**
 
+Now, run:
+
+```bash
+python modified_UW_exampler/test.py
+```
+
 
 ## Comparison with commonly used commercial app
 
