@@ -37,7 +37,7 @@ unzip the files and place the folders 'checkpoints' and 'data' in the 'modified_
 Next, run:
 
 ```bash
-cd modified_DEBVC
+cd modified_UW_exemplar
 ```
 
 ## Data Preparation
