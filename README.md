@@ -6,10 +6,6 @@
 ![Sample Tracking](assets/gif_our_vs_original.gif)
 
 
-
-https://user-images.githubusercontent.com/71815064/128625016-79d433ac-61e9-4bea-aea2-b4ffe82e8fbf.mp4
-
-
 Our goal is to be able to take an underwater video and make it colorful in a temporal-consistent way, so there is no flickering between frames. 
 
 ## Code
@@ -62,6 +58,5 @@ Where test_dir is the directory where both 'frames' and 'ref' are located (defau
 
 ![Sample Tracking](assets/ours_vs_divep.gif)
 
-https://user-images.githubusercontent.com/71815064/128603788-60435cab-8a02-485b-9c69-64e4c95ac9ce.mp4
 
 One can clearly see the frame-to-frame consistency in the left (ours) vs. the flickering in the right (Dive+).
