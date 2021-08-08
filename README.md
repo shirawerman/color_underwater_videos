@@ -3,7 +3,7 @@
 
 # DL4CV project: Underwater Color Restoration for Videos
 
-![Sample Tracking](assets/gif_ours_vs_original.gif)
+![Sample Tracking](assets/gif_our_vs_original.gif)
 
 
 
