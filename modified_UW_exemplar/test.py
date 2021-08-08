@@ -132,9 +132,9 @@ if __name__ == "__main__":
     parser.add_argument("--cuda", action="store_false")
     parser.add_argument("--dont_load_our_model", action='store_true', default=False)
     parser.add_argument("--random", default=False, type=bool)
-    parser.add_argument("--checkpoint_dir", type=str, default="./modified_UW_exemplar/checkpoints/finetuned")
+    parser.add_argument("--checkpoint_dir", type=str, default="./checkpoints/finetuned")
     parser.add_argument("--gpu_ids", type=str, default="0,1,2,3", help="separate by comma")
-    parser.add_argument("--test_dir", type=str, default='./modified_UW_exampler/input')
+    parser.add_argument("--test_dir", type=str, default='./input')
     parser.add_argument("--output_dir", type=str, default="output", help="path of output clips")
     opt = parser.parse_args()
     opt.gpu_ids = [int(x) for x in opt.gpu_ids.split(",")]
