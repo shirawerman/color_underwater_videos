@@ -18,6 +18,9 @@ parser.add_argument("--path",
 parser.add_argument("--output_path",
                     default='./input/frames')
 #### The videos need to be in a folder of videos, it opens new folder in the parent directory with the names of the videos
+opt = parser.parse_args()
+path = opt.path
+output_path = opt.output_path
 
 """
 
