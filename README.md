@@ -47,7 +47,7 @@ To extract the frames, you can run
 ```bash
 python vid_to_frames.py --path <vid_path> --output_path <out_path>
 ```
-Note that the default for input and output path are: './input/video' and './input/frames' correspondingly.
+Note that the default for input and output path are: './input/video/blue_video.avi' and './input/frames' correspondingly.
 
 Next, you need a reference frame.  This can be done offline using existing color enhancement methods, e.g. Dive+.
 

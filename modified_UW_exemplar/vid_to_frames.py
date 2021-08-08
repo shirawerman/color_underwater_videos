@@ -14,7 +14,7 @@ import torchvision.transforms as transform_lib
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--path",
-                    default='./input/video')
+                    default='./input/video/blue_video.avi')
 parser.add_argument("--output_path",
                     default='./input/frames')
 #### The videos need to be in a folder of videos, it opens new folder in the parent directory with the names of the videos
