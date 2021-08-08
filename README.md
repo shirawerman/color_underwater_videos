@@ -54,9 +54,9 @@ Next, place your reference images in a directory named 'ref', _e.g._, './modifie
 Now, run:
 
 ```bash
-python modified_UW_exampler/test.py
+python modified_UW_exampler/test.py --test_dir <test_dir> --output_dir <output_dir>
 ```
-
+Where test_dir is the directory where both 'frames' and 'ref' are located (default: './modified_UW_exampler/input') and output_dir is the name of the output folder (default: 'output'), such that the output video will be in <test_dir>/<output_dir>.
 
 ## Comparison with commonly used commercial app
 
@@ -64,3 +64,4 @@ python modified_UW_exampler/test.py
 
 https://user-images.githubusercontent.com/71815064/128603788-60435cab-8a02-485b-9c69-64e4c95ac9ce.mp4
 
+One can clearly see the frame-to-frame consistency in the left (ours) vs. the flickering in the right (Dive+).
