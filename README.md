@@ -34,6 +34,12 @@ pip install -r requirements.txt
 Then, download the pretrained models from [this link](https://drive.google.com/drive/folders/1OxB0G1blnjIDcFQ2Cnt4RfJbP-Iw-QH-?usp=sharing),
 unzip the files and place the folders 'checkpoints' and 'data' in the 'modified_DEBVC' directory.
 
+Next, run:
+
+```bash
+cd modified_DEBVC
+```
+
 ## Data Preparation
 
 In order to colorize your own video, it requires to extract the video frames, and provide a reference image as an example.
@@ -41,18 +47,20 @@ To extract the frames, you can run
 ```bash
 python vid_to_frames.py --path <vid_path> --output_path <out_path>
 ```
-Note that the default for input and output path are: './modified_UW_exemplar/input/video' and './modified_UW_exemplar/input/frames' correspondingly.
+Note that the default for input and output path are: './input/video' and './input/frames' correspondingly.
 
-Next, place your reference images in a directory named 'ref', _e.g._, './modified_UW_exemplar/input/ref'
+Next, you need a reference frame.  This can be done offline using existing color enhancement methods, e.g. Dive+.
+
+Place your reference images in a directory named 'ref', _e.g._, './input/ref'
 
 **Note that 'frames' and 'ref' must be in the same directory**
 
 Now, run:
 
 ```bash
-python modified_UW_exemplar/test.py --test_dir <test_dir> --output_dir <output_dir>
+python test.py --test_dir <test_dir> --output_dir <output_dir>
 ```
-Where test_dir is the directory where both 'frames' and 'ref' are located (default: './modified_UW_exemplar/input') and output_dir is the name of the output folder (default: 'output'), such that the output video will be in <test_dir>/<output_dir>.
+Where test_dir is the directory where both 'frames' and 'ref' are located (default: './input') and output_dir is the name of the output folder (default: 'output'), such that the output video will be in <test_dir>/<output_dir>.
 
 ## Comparison with commonly used commercial app
 
