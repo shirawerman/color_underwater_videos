@@ -33,13 +33,13 @@ vidcap = cv2.VideoCapture(path)
 
 
 if not os.path.exists(output_path):
-os.mkdir(output_path, mode)
+    os.mkdir(output_path, mode)
 
 success,image = vidcap.read()
 count = 0
 
 while success:
-save_to = os.path.join(output_path, "{:04d}.jpg".format(count))
+    save_to = os.path.join(output_path, "{:04d}.jpg".format(count))
 
 # transform image
 image = transform(image)
