@@ -3,9 +3,12 @@
 
 # DL4CV project: Underwater Color Restoration for Videos
 
-![Sample Tracking](assets/ours_vs_divep.gif)
+![Sample Tracking](assets/gif_ours_vs_original.gif)
 
-https://user-images.githubusercontent.com/71815064/128169439-6d3da019-b3fe-46a7-bd57-ceb8a68694c7.mp4
+
+
+https://user-images.githubusercontent.com/71815064/128625016-79d433ac-61e9-4bea-aea2-b4ffe82e8fbf.mp4
+
 
 Our goal is to be able to take an underwater video and make it colorful in a temporal-consistent way, so there is no flickering between frames. 
 
@@ -57,6 +60,7 @@ python modified_UW_exampler/test.py
 
 ## Comparison with commonly used commercial app
 
+![Sample Tracking](assets/ours_vs_divep.gif)
 
 https://user-images.githubusercontent.com/71815064/128603788-60435cab-8a02-485b-9c69-64e4c95ac9ce.mp4
 
